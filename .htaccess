@@ -1,0 +1,252 @@
+ErrorDocument 400 /shree/error.php?errorCode=400
+
+ErrorDocument 401 /shree/error.php?errorCode=401
+
+ErrorDocument 403 /shree/error.php?errorCode=403
+
+ErrorDocument 404 /shree/error.php?errorCode=404
+
+ErrorDocument 500 /shree/error.php?errorCode=500
+
+RewriteEngine On
+#Rewrite Rules for Index Pages
+RewriteRule ^login$ loginForm.php [NC,L]
+RewriteRule ^error/([0-9]+)$ error.php?errorCode=$1 [NC,L]
+RewriteRule ^dashboard$ dashboard.php [NC,L]
+RewriteRule ^expenses$ manageExpenses.php [NC,L]
+RewriteRule ^chalans$ manageChalans.php [NC,L]
+RewriteRule ^bills$ manageBills.php [NC,L]
+RewriteRule ^gatepasses$ manageGatepass.php [NC,L]
+RewriteRule ^payments$ managePayment.php [NC,L]
+RewriteRule ^companies$ manageCompanies.php [NC,L]
+RewriteRule ^vendors$ manageVendors.php [NC,L]
+RewriteRule ^reports$ reports.php [NC,L]
+RewriteRule ^trash$ manageTrash.php [NC,L]
+RewriteRule ^employees$ manageEmployees.php [NC,L]
+RewriteRule ^vouchers$ manageVouchers.php [NC,L]
+
+
+# iFrame Pages
+RewriteRule ^newbill$ addBill.php [NC,L]
+RewriteRule ^newManualBill$ manualBill.php [NC,L]
+RewriteRule ^newGatepass$ addGatepass.php [NC,L]
+RewriteRule ^newChalan$ addChalan.php [NC,L]
+RewriteRule ^newCompany$ addCompany.php [NC,L]
+RewriteRule ^newVendor$ addVendor.php [NC,L]
+RewriteRule ^newEmployee$ addEmployee.php [NC,L]
+RewriteRule ^addPayment$ addPayment.php [NC,L]
+RewriteRule ^addExpenses$ addExpenses.php [NC,L]
+RewriteRule ^manageSalary$ manageSalary.php [NC,L]
+RewriteRule ^manageAdvance$ manageAdvance.php [NC,L]
+RewriteRule ^createSalary$ createSalary.php [NC,L]
+RewriteRule ^newLoan$ newLoan.php [NC,L]
+RewriteRule ^newVoucher$ addVoucher.php [NC,L]
+RewriteRule ^gstr1$ genrateGSTR1.php [NC,L]
+RewriteRule ^gstr2$ genrateGSTR2.php [NC,L]
+RewriteRule ^salesReport$ salesReport.php [NC,L]
+RewriteRule ^purchaseReport$ purchaseReport.php [NC,L]
+RewriteRule ^pendingGatepasses$ pendingGatepasses.php [NC,L]
+RewriteRule ^rollsDelivered$ rollsDelivered.php [NC,L]
+RewriteRule ^rollsReceived$ rollsRecieved.php [NC,L]
+RewriteRule ^deliveredRolls/([0-9]+)/([0-9]+)$ api/rollsDelivered.php?year=$1&month=$2 [NC,L]
+RewriteRule ^rollsRecieved/([0-9]+)/([0-9]+)$ api/rollsRecieved.php?year=$1&month=$2 [NC,L]
+RewriteRule ^companyWiseReports$ companyWiseReports.php [NC,L]
+RewriteRule ^updatePayment/([0-9]+)$ updatePayment.php?id=$1 [NC,L]
+RewriteRule ^updateExpenses/([0-9]+)$ updateExpenses.php?id=$1 [NC,L]
+RewriteRule ^modifyGatepass/([0-9]+)$ modifyGatepass.php?id=$1 [NC,L]
+RewriteRule ^pendingBills$ pendingBills.php [NC,L]
+
+
+#External Pages
+RewriteRule ^bill/([0-9a-zA-Z_-]+)$ printBill.php?billNumber=$1 [NC,L]
+RewriteRule ^editBill/([0-9a-zA-Z_-]+)$ updateBill.php?billNumber=$1 [NC,L]
+RewriteRule ^chalan/([0-9a-zA-Z_-]+)$ printChalan.php?chalanNumber=$1 [NC,L]
+RewriteRule ^fetchChalan/([0-9]+)$ api/getChalanInfo.php?number=$1 [NC,L]
+RewriteRule ^sales/([0-9]+)/([0-9]+)$ api/generateSalesReport.php?year=$1&month=$2 [NC,L]
+RewriteRule ^salary/([0-9-]+)$ printSalary.php?date=$1 [NC,L]
+RewriteRule ^purchase/([0-9]+)/([0-9]+)$ api/generatePurchaseReport.php?year=$1&month=$2 [NC,L]
+RewriteRule ^gstr2Report/([0-9]+)/([0-9]+)$ api/generateReport3B.php?year=$1&month=$2 [NC,L]
+RewriteRule ^editVoucher/([0-9]+)$ editVoucher.php?id=$1 [NC,L]
+
+#Report Pages
+	#GATEPASSES Year wise
+	RewriteRule ^reports/gatepasses/([0-9a-zA-Z_-]+)/([0-9]+)/([0-9]+)$ api/companyWiseReports/gatepasses.php?criteria=$1&companyId=$2&year=$3 [NC,L]
+
+	#GATEPASSES Month wise
+	RewriteRule ^reports/gatepasses/([0-9a-zA-Z_-]+)/([0-9]+)/([0-9]+)/([0-9]+)$ api/companyWiseReports/gatepasses.php?criteria=$1&companyId=$2&year=$3&month=$4 [NC,L]
+
+	#GATEPASSES Date wise
+	RewriteRule ^reports/gatepasses/([0-9a-zA-Z_-]+)/([0-9]+)/([0-9a-zA-Z_-]+)/([0-9a-zA-Z_-]+)$ api/companyWiseReports/gatepasses.php?criteria=$1&companyId=$2&from=$3&to=$4 [NC,L]
+	#------------------------------------------------------------------------
+	#CHALANS Year wise
+	RewriteRule ^reports/chalans/([0-9a-zA-Z_-]+)/([0-9]+)/([0-9]+)$ api/companyWiseReports/chalans.php?criteria=$1&companyId=$2&year=$3 [NC,L]
+
+	#CHALANS Month wise
+	RewriteRule ^reports/chalans/([0-9a-zA-Z_-]+)/([0-9]+)/([0-9]+)/([0-9]+)$ api/companyWiseReports/chalans.php?criteria=$1&companyId=$2&year=$3&month=$4 [NC,L]
+
+	#CHALANS Date wise
+	RewriteRule ^reports/chalans/([0-9a-zA-Z_-]+)/([0-9]+)/([0-9a-zA-Z_-]+)/([0-9a-zA-Z_-]+)$ api/companyWiseReports/chalans.php?criteria=$1&companyId=$2&from=$3&to=$4 [NC,L]
+	#------------------------------------------------------------------------
+	#BILLS Year wise
+	RewriteRule ^reports/bills/([0-9a-zA-Z_-]+)/([0-9]+)/([0-9]+)$ api/companyWiseReports/bills.php?criteria=$1&companyId=$2&year=$3 [NC,L]
+
+	#BILLS Month wise
+	RewriteRule ^reports/bills/([0-9a-zA-Z_-]+)/([0-9]+)/([0-9]+)/([0-9]+)$ api/companyWiseReports/bills.php?criteria=$1&companyId=$2&year=$3&month=$4 [NC,L]
+
+	#BILLS Date wise
+	RewriteRule ^reports/bills/([0-9a-zA-Z_-]+)/([0-9]+)/([0-9a-zA-Z_-]+)/([0-9a-zA-Z_-]+)$ api/companyWiseReports/bills.php?criteria=$1&companyId=$2&from=$3&to=$4 [NC,L]
+
+	#------------------------------------------------------------------------
+	#PAYMENT Year wise
+	RewriteRule ^reports/payments/([0-9a-zA-Z_-]+)/([0-9]+)/([0-9]+)$ api/companyWiseReports/payments.php?criteria=$1&companyId=$2&year=$3 [NC,L]
+
+	#PAYMENT Month wise
+	RewriteRule ^reports/payments/([0-9a-zA-Z_-]+)/([0-9]+)/([0-9]+)/([0-9]+)$ api/companyWiseReports/payments.php?criteria=$1&companyId=$2&year=$3&month=$4 [NC,L]
+
+	#PAYMENT Date wise
+	RewriteRule ^reports/payments/([0-9a-zA-Z_-]+)/([0-9]+)/([0-9a-zA-Z_-]+)/([0-9a-zA-Z_-]+)$ api/companyWiseReports/payments.php?criteria=$1&companyId=$2&from=$3&to=$4 [NC,L]
+
+
+#Rewrite Rule For APIs
+RewriteRule ^auth$ api/login.php [NC,L]
+RewriteRule ^redirect$ api/rememberMe.php [NC,L]
+RewriteRule ^checkAuth/([0-9a-zA-Z_-]+)/([0-9a-zA-Z_-]+)$ api/checkAuth.php?DoxsG0tsqU=$1&smtWZ86pA2=$2 [NC,L]
+RewriteRule ^hash$ api/getHash.php [NC,L]
+RewriteRule ^addTask$ api/addTodo.php [NC,L]
+RewriteRule ^saveGatepass$ api/addGatepass.php [NC,L]
+RewriteRule ^deleteTask$ api/deleteTodo.php [NC,L]
+RewriteRule ^changeTask$ api/changeTodoIsDone.php [NC,L]
+RewriteRule ^functions$ api/functions.php [NC,L]
+RewriteRule ^generateBill$ api/createBill.php [NC,L]
+RewriteRule ^updateBill$ api/updateBill.php [NC,L]
+RewriteRule ^checkBillNumber$ api/checkBillNumber.php [NC,L]
+RewriteRule ^checkGatepass$ api/checkGatepass.php [NC,L]
+RewriteRule ^updateBillDate$ api/updateBillDate.php [NC,L]
+RewriteRule ^updateBillStatus$ api/updateBillStatus.php [NC,L]
+RewriteRule ^updatePayment$ api/updatePayment.php [NC,L]
+RewriteRule ^updateExpenses$ api/updateExpenses.php [NC,L]
+RewriteRule ^updateGatepass$ api/modifyGatepass.php [NC,L]
+RewriteRule ^updateEmployee$ api/updateEmployee.php [NC,L]
+RewriteRule ^updateVoucher$ api/updateVoucher.php [NC,L]
+RewriteRule ^unpaidBills/([0-9]+)$ api/pendingBills.php?companyId=$1 [NC,L]
+RewriteRule ^sameState/([0-9]+)$ api/fetchGstin.php?companyId=$1 [NC,L]
+RewriteRule ^sameState/([0-9]+)$ api/fetchGstin.php?companyId=$1 [NC,L]
+RewriteRule ^saveCompany$ api/insertCompany.php [NC,L]
+RewriteRule ^saveSalaryDetails$ api/saveSalaryDetails.php [NC,L]
+RewriteRule ^getSalaryMonths/([0-9]+)/([0-9]+)$ api/getSalaryMonths.php?month=$1&year=$2 [NC,L]
+RewriteRule ^reportStatistics/([0-9]+)/([0-9]+)$ api/reportStatistics.php?month=$1&year=$2 [NC,L]
+RewriteRule ^deletePayment/([0-9]+)$ api/deletePayment.php?id=$1 [NC,L]
+RewriteRule ^deleteSalary/([0-9-]+)$ api/deleteSalary.php?date=$1 [NC,L]
+RewriteRule ^deleteLoan/([0-9]+)$ api/deleteLoan.php?id=$1 [NC,L]
+RewriteRule ^gatepassDetails/([0-9a-zA-Z_-]+)$ api/gatepassDetails.php?gatepassNumber=$1 [NC,L]
+RewriteRule ^getTotalDue/([0-9]+)$ api/getEmployeeDue.php?id=$1 [NC,L]
+RewriteRule ^saveLoan$ api/saveLoan.php [NC,L]
+RewriteRule ^getGraphData$ api/getGraphData.php [NC,L]
+
+
+RewriteRule ^savePayment$ api/savePayment.php [NC,L]
+RewriteRule ^saveExpenses$ api/saveExpenses.php [NC,L]
+RewriteRule ^fetchYears/([0-9a-zA-Z_-]+)/([0-9a-zA-Z_-]+)$ api/fetchYears.php?tableName=$1&columnName=$2 [NC,L]
+RewriteRule ^fetchYearsByCompanyId/([0-9]+)/([0-9a-zA-Z_-]+)$ api/fetchYearsByCompanyId.php?companyId=$1&tableName=$2 [NC,L]
+
+RewriteRule ^fetchMonthsByCompanyId/([0-9]+)/([0-9a-zA-Z_-]+)/([0-9]+)$ api/fetchMonthsByCompanyId.php?companyId=$1&tableName=$2&year=$3 [NC,L]
+
+RewriteRule ^fetchMonths/([0-9]+)/([0-9a-zA-Z_-]+)/([0-9a-zA-Z_-]+)$ api/fetchMonths.php?year=$1&tableName=$2&columnName=$3 [NC,L]
+RewriteRule ^generateReportB2B$ api/generateReportB2B.php [NC,L]
+RewriteRule ^fetchPayment/([0-9]+)$ api/fetchPayment.php?paymentId=$1 [NC,L]
+RewriteRule ^fetchExpenses/([0-9]+)$ api/fetchExpenses.php?Id=$1 [NC,L]
+RewriteRule ^fetchVendor/([0-9]+)$ api/vendorProfile.php?Id=$1 [NC,L]
+RewriteRule ^fetchCompany/([0-9]+)$ api/companyProfile.php?Id=$1 [NC,L]
+RewriteRule ^fetchEmployee/([0-9]+)$ api/employeeProfile.php?Id=$1 [NC,L]
+RewriteRule ^fetchGatepass/([0-9a-zA-Z_-]+)/([0-9]+)$ api/fetchGatepass.php?gatepassNumber=$1&companyId=$2 [NC,L]
+RewriteRule ^fetchGatepasses/([0-9]+)/([0-9a-zA-Z_-]+)$ api/fetchGatepasses.php?cId=$1&status=$2 [NC,L]
+RewriteRule ^fetchCompanies$ api/fetchCompanies.php [NC,L]
+RewriteRule ^delete$ api/deleteCompany.php [NC,L]
+RewriteRule ^saveEmployee$ api/saveEmployee.php [NC,L]
+RewriteRule ^saveVoucher$ api/saveVoucher.php [NC,L]
+RewriteRule ^editCompany/([0-9]+)$ editCompany.php?id=$1 [NC,L]
+RewriteRule ^editEmployee/([0-9]+)$ editEmployee.php?id=$1 [NC,L]
+RewriteRule ^allCompanies$ api/companyList.php [NC,L]
+RewriteRule ^allVendors$ api/vendorList.php [NC,L]
+
+# Rewrite Rule For Images
+RewriteRule ^favicon$ favicon.ico [NC,L]
+RewriteRule ^logo$ img/logo.svg [NC,L]
+RewriteRule ^gear$ img/gear.png [NC,L]
+RewriteRule ^icon/home$ img/icon/home.png [NC,L]
+RewriteRule ^icon/expenses$ img/icon/expenses.png [NC,L]
+RewriteRule ^icon/chalan$ img/icon/chalan.png [NC,L]
+RewriteRule ^icon/back$ img/icon/back.png [NC,L]
+RewriteRule ^icon/bill$ img/icon/bill.png [NC,L]
+RewriteRule ^icon/pass$ img/icon/pass.png [NC,L]
+RewriteRule ^icon/payment$ img/icon/payment.png [NC,L]
+RewriteRule ^icon/factory$ img/icon/factory.png [NC,L]
+RewriteRule ^icon/vendors$ img/icon/vendors.png [NC,L]
+RewriteRule ^icon/trash$ img/icon/trash.png [NC,L]
+RewriteRule ^icon/logout$ img/icon/logout.png [NC,L]
+RewriteRule ^icon/down-arrow$ img/icon/down-arrow.png [NC,L]
+RewriteRule ^icon/eye$ img/icon/eye.png [NC,L]
+RewriteRule ^icon/download$ img/icon/download.png [NC,L]
+RewriteRule ^icon/print$ img/icon/printer.png [NC,L]
+RewriteRule ^icon/edit$ img/icon/edit.png [NC,L]
+RewriteRule ^icon/reports$ img/icon/reports.png [NC,L]
+RewriteRule ^icon/warning$ img/icon/warning.png [NC,L]
+RewriteRule ^icon/checkedCircle$ img/icon/checkedCircle.png [NC,L]
+RewriteRule ^icon/todoChecked$ img/icon/todoChecked.png [NC,L]
+RewriteRule ^icon/todoEmpty$ img/icon/todoEmpty.png [NC,L]
+RewriteRule ^icon/more$ img/icon/more.png [NC,L]
+RewriteRule ^icon/expand$ img/icon/expand-arrow.png [NC,L]
+RewriteRule ^icon/employee$ img/icon/employee.png [NC,L]
+RewriteRule ^icon/vouchers$ img/icon/vouchers.png [NC,L]
+RewriteRule ^icon/statistics$ img/icon/statistics.png [NC,L]
+RewriteRule ^icon/more$ img/icon/more.png [NC,L]
+RewriteRule ^icon/recent$ img/icon/recent.png [NC,L]
+RewriteRule ^icon/report$ img/icon/report.png [NC,L]
+RewriteRule ^icon/invoice$ img/icon/invoice.png [NC,L]
+RewriteRule ^icon/delete$ img/icon/delete.png [NC,L]
+RewriteRule ^icon/search$ img/icon/search.png [NC,L]
+
+#Rewrite Rule for Stylesheets
+RewriteRule ^css/newBill$ css/addBill.css [NC,L]
+RewriteRule ^css/graph$ css/graph.css [NC,L]
+RewriteRule ^css/vipForm$ css/addCompany.css [NC,L]
+RewriteRule ^css/newGatepass$ css/addGatepass.css [NC,L]
+RewriteRule ^css/newInvoice$ css/addInvoice.css [NC,L]
+RewriteRule ^css/dashboard$ css/dashboard.css [NC,L]
+RewriteRule ^css/customContext$ css/customContext.css [NC,L]
+RewriteRule ^css/editCompany$ css/editCompany.css [NC,L]
+RewriteRule ^css/gstr1$ css/gstReport1.css [NC,L]
+RewriteRule ^css/manageCompany$ css/manageCompany.css [NC,L]
+RewriteRule ^css/popup$ css/popup.css [NC,L]
+RewriteRule ^css/msgBox$ css/snackbar.css [NC,L]
+RewriteRule ^css/login$ css/style.css [NC,L]
+RewriteRule ^css/viewCompany$ css/viewCompany.css [NC,L]
+RewriteRule ^css/manageReports$ css/manageReports.css [NC,L]
+
+#Rewrite Rule for Javascript files
+RewriteRule ^js/newBill$ js/addBill.js [NC,L]
+RewriteRule ^js/newChalan$ js/addChalan.js [NC,L]
+RewriteRule ^js/newCompany$ js/addCompany.js [NC,L]
+RewriteRule ^js/newPurchase$ js/addExpenses.js [NC,L]
+RewriteRule ^js/newGatepass$ js/addGatepass.js [NC,L]
+RewriteRule ^js/newPayment$ js/addPayment.js [NC,L]
+RewriteRule ^js/newVendor$ js/addVendor.js [NC,L]
+RewriteRule ^js/dashboard$ js/dashboard.js [NC,L]
+RewriteRule ^js/editCompany$ js/editCompany.js [NC,L]
+RewriteRule ^js/editVendor$ js/editVendor.js [NC,L]
+RewriteRule ^js/gstr1$ js/generategstr1.js [NC,L]
+RewriteRule ^js/login$ js/main.js [NC,L]
+RewriteRule ^js/manageComapany$ js/manageCompany.js [NC,L]
+RewriteRule ^js/manageBills$ js/manageBills.js [NC,L]
+RewriteRule ^js/manageExpenses$ js/manageExpenses.js [NC,L]
+RewriteRule ^js/manageGatepass$ js/manageGatepasses.js [NC,L]
+RewriteRule ^js/managePayment$ js/managePayment.js [NC,L]
+RewriteRule ^js/manageVendors$ js/manageVendors.js [NC,L]
+RewriteRule ^js/manageChalans$ js/manageChalans.js [NC,L]
+RewriteRule ^js/salesReport$ js/salesReport.js [NC,L]
+RewriteRule ^js/pendingGatepasses$ js/pendingGatepasses.js [NC,L]
+RewriteRule ^js/reports$ js/reports.js [NC,L]
+RewriteRule ^js/manageTrash$ js/manageTrash.js [NC,L]
+RewriteRule ^js/frameContext$ js/frameContext.js [NC,L]
+
+Options -indexes

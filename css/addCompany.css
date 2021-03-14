@@ -1,0 +1,122 @@
+@import url('montserrat.css');
+*{
+	font-family: "Montserrat", sans-serif;
+	box-sizing: border-box;
+	transition: 0.2s;
+}
+*::selection{
+	color: #4448e2;
+	background-color: yellow;
+}
+body{
+	margin: 0;
+	padding: 10px;
+	text-align: center;
+}
+[disabled='']{
+	cursor: no-drop !important;
+	background-color: #1a5d9e !important;
+}
+#backIcon{
+	position: fixed;
+	top: 15px;
+	left: 20px;
+	width: 36px;
+	background-color: #33333397;
+	padding: 8px;
+	border-radius: 50px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+#backIcon:hover{
+	background-color: #000;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+form{
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 20px;
+	background-color: #fff;
+	box-sizing: border-box;
+	text-align: center;
+	display: inline-block;
+	border-radius: 10px;
+	box-shadow: 0 0 5px rgba(0,0,0,0.5);
+	margin: 20px;
+	width: 60%;
+}
+form h1{
+	display: inline-block;
+	margin: 0;
+	font-family: "Montserrat", sans-serif;
+	color: #262626;
+	font-size: 20px;
+}
+.feildName{
+	font-family: "Montserrat", sans-serif;
+	text-align: left;
+}
+input,textarea,select{
+	border: none;
+	padding: 10px;
+	margin: 10px 10px;
+	border-bottom: 1px solid;
+	border-radius: 10px;
+	border-color: #cccccc;
+	font-size: 1rem;
+	outline: none;
+	width: 100%;
+}
+textarea{
+	resize: none;
+}
+input:focus,textarea:focus,select:focus{
+	border-color: dodgerblue;
+}
+table{
+	margin: 0 auto;
+}
+button{
+	font-size: 1.1em;
+	border: none;
+	cursor: pointer;
+	padding: 10px 20px;
+	border-radius: 20px;
+	background-color: dodgerblue;
+	color: #fff;
+	font-family: "Montserrat", sans-serif;
+}
+button:hover{
+	background-color: #1e70fe;
+}
+button:focus{
+	outline: none;
+	box-shadow: 0 0 18px rgba(0,0,0,0.5);
+}
+button:active{
+	background-color: #fff;
+	color: #1e70fe;
+	border: 1px solid #1e70fe;
+	transform: scale(.9);
+	box-shadow: none;
+}
+#cGSTIN{
+	text-transform: uppercase;
+}
+#devider{
+	display: block;
+	margin: 0 auto;
+	margin-bottom: 10px;
+}

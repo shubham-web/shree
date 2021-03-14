@@ -1,0 +1,282 @@
+@import url('montserrat.css');
+*{
+	transition: 0.3s;
+	font-family: "Montserrat", sans-serif;
+	scroll-behavior: smooth;
+}
+*::selection{
+	color: #4448e2;
+	background-color: yellow;
+}
+body{
+	margin: 0;
+	padding: 0;
+	scroll-behavior: smooth;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track { 
+    background: #f1f1f1;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+#backIcon{
+	position: absolute;
+	top: 35px;
+	left: 50px;
+	width: 25px;
+	background-color: #33333397;
+	padding: 8px;
+	border-radius: 50px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+#backIcon:hover{
+	background-color: #000;
+}
+a{
+	text-decoration: none;
+	color: dodgerblue;
+}
+a:hover{
+	text-decoration: underline;
+	color: #1e70fe;
+}
+h1{
+	margin: 0;
+	text-align: center;
+	margin-bottom: 10px;
+	color: #333;
+	font-size: 2em;
+}
+[name='hsnCode']{
+	display: none;
+}
+input[type='radio'] + label{
+	padding: 10px;
+	cursor: pointer;
+}
+#hsn1:checked + label{
+	background-color: dodgerblue;
+	color: #fff;
+}
+#hsn2:checked +  label{
+	background-color: dodgerblue;
+	color: #fff;
+
+}
+.fieldName{
+	width: 40%;
+}
+.fieldInpuy{
+	width: 60%;
+}
+#chalanInfoWrapper, #addOnWrapper{
+	display: none;
+}
+#incrementActive{
+	background-color: rgba(144,238,144,0.5);
+}
+#decrementActive{
+	background-color: rgba(255,23,23,0.2);
+}
+#descriptionActive{
+	background-color: #f1f1f1;
+}
+legend{
+	padding: 20px;
+	text-align: center;
+	font-weight: bold;
+}
+#rollsInfo, #chalanInfo, #addOn{
+	transform: scale(0);
+	display: none;
+}
+#rollInfoTable, #amountsTable, #chalanInfoTable, #addOnTable{
+	border-collapse: collapse;
+	width: 100%;
+}
+#rollInfoTable td, #addOnTable td{
+	text-align: right;
+}
+#chalanInfoTable td{
+	text-align: center;
+}
+#rollInfoTable thead tr, #chalanInfoTable thead tr, #addOnTable thead tr{
+	background-color: dodgerblue;
+	color: #fff;
+}
+#rollInfoTable td, #rollInfoTable th, #chalanInfoTable td, #addOnTable td, #chalanInfoTable th, #addOnTable th{
+	padding: 10px;
+}
+form{
+	display: inline-block;
+	position: absolute;
+	width: 90%;
+	left: 50%;
+	transform: translateX(-50%);
+	padding: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.3);
+	background-color: #fff;
+}
+table:not(#rollInfoTable){
+	border-collapse: collapse;
+	width: 100%;
+}
+h1{
+	margin: 0;
+	color: #333333;
+	text-align: center;
+	font-size: 1.5rem;
+}
+thead{
+	background-color: #cccccc;
+}
+td{
+	padding: 20px 10px;
+}
+fieldset{
+	border-color: #ccc;
+}
+input:not([type='checkbox']),button,textarea,select{
+	padding: 8px 10px;
+	font-size: 14px;
+	border: none;
+	border-bottom: 1px solid grey;
+	width: 200px;
+}
+select{
+	width: auto;
+}
+[disabled]{
+	cursor: no-drop;
+}
+#cid{
+	width: auto;
+	text-align: center;
+	border: none;
+	border-radius: 50px;
+	background-color: #262626;	
+	color: #fff;
+}
+#amountsTable{
+	transform: scale(0);
+    width: 97% !important;
+    margin: 0 auto !important;
+    display: none;
+}
+#amountsTable tr:nth-child(odd){
+	background-color: #f1f1f1;
+}
+#amountsTable td, #amountsTable th{
+	padding: 10px;
+}
+.action{
+	display: block;
+	margin: 10px auto;
+	padding: 5px 10px;
+	border-radius: 20px;
+	background-color: dodgerblue;
+	color: #fff;
+	cursor: pointer;
+	border: none;
+	font-size: 14px;
+}
+.action:hover{
+	background-color: #1e70fe;
+}
+.active{
+	background-color: #f1f1f1;
+}
+.amounts{
+	text-align: right;
+}
+#createBill{
+	display: none;
+}
+#lastBillNumber{
+	background-color: #262626;
+	color: #fff;
+	font-size: 14px;
+	border-radius: 50px;
+	padding: 10px;
+	cursor: help;
+	user-select: none;
+}
+#lastBillNumber::selection{
+	background-color: #262626;
+	color: #fff;
+	border-radius: 50px;
+}
+#increment, #decrement{
+	text-align: right;
+}
+.icon{
+	position: absolute;
+	left: 20%;
+}
+
+/*------Custom Checkbox ------*/
+input[type="checkbox"]{
+	visibility: hidden;
+	padding: 10px;
+}
+input[type="checkbox"]:before{
+	position: absolute;
+	content: '';
+	padding: 9px;
+	background: url('../img/icon/empty.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	visibility: visible;
+	box-sizing: border-box;
+	transition: 0.2s;
+	cursor: pointer;
+	z-index: 100;
+}
+input[type="checkbox"]:checked:before{
+	background: url('../img/icon/checked.png');
+	background-size: cover;
+}
+.removeBtn{
+	width: 80px;
+	background-color: #ff0000bd;
+	color: #fff;
+	font-weight: bold;
+	outline: none;
+	transition: 0.3s;
+	border-radius: 10px;
+	border:none;
+	cursor: pointer;
+}
+.removeBtn:hover{
+	background-color: red;
+}
+.removeBtn:focus{
+	box-shadow: 0 0 10px rgba(0,0,0,0.3);
+	background-color: red;
+}
+.removeBtn:active{
+	color: red;
+	background-color: white;
+	transform: scale(0.9);
+}
+#addRowBtn{
+	border: none;
+	width: 100px;
+	cursor: pointer;
+}

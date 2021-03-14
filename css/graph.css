@@ -1,0 +1,104 @@
+section#graph{
+	position: absolute;
+	box-shadow: 0 0 10px rgba(0,0,0,0.3);
+	background-color: #fff;
+	border-radius: 10px;
+	margin: 20px;
+	width: 550px;
+	height: 330px;
+	background: url(../img/graphBG.png);
+	background-size: 100% 100%;
+	box-sizing: border-box;
+}
+section#graph main{
+	width: 450px;
+	height: 268.1px;
+	margin-top: 24px;
+	margin-left: 78px;
+	display: grid;
+	grid-template-rows: 100%;
+	grid-template-columns: repeat(5, 63px);
+	justify-content: space-around;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+#pillerInfo{
+	position: absolute;
+	display: inline-block;
+	padding: 10px;
+	background-color: teal;
+	color: #fff;
+	box-shadow: 0 0 20px rgba(0,0,0,.5);
+	border-radius: 10px;
+	z-index: 100;
+	transform: translate(-50%,-111%);
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s ease;
+	transition: 0.1s;
+}
+#pillerInfo:before{
+	position: absolute;
+	content: '.';
+	width: 20px;
+	background-color: inherit;
+	color: dodgerblue;
+	top: 100%;
+	left: 50%;
+	transform: translate(-50%,-50%) rotate(45deg) scale(0.5);
+}
+#pillerInfo h1{
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+}
+#pillerInfo p{
+	margin: 0;
+	padding: 0;
+	font-size: 14px;
+	text-align: center;
+}
+section#graph main > div{
+	height: 100%;
+	display: grid;
+	justify-content: space-between;
+	align-items: flex-end;
+	grid-template-rows: auto;
+	grid-template-columns: 49% 49%;
+}
+section#graph main > div .bar{
+	background-color: dodgerblue;
+	display: inline-block;
+	height: 0%;
+	transition: 1s ease;
+}
+section#graph main > div .bar:hover{
+	border: 1px solid dodgerblue;
+}
+section#graph main div:not(.bar) .bar:nth-child(odd){
+	background-color: #235ed2;
+	/*background-image: linear-gradient(to bottom, #6b82fe, #2cc8fd);*/
+}
+section#graph main div:not(.bar) .bar:nth-child(even){
+	background-color: #ff5722;
+	/*background-image: linear-gradient(to top, #ff908a, #ff7088);*/
+}
+section#graph footer{
+	width: 450px;
+	height: 22px;
+	margin-left: 78px;
+	display: grid;
+	grid-template-rows: 22px;
+	grid-template-columns: 20% 20% 20% 20% 20%;
+	padding-top: 5px;
+	box-sizing: border-box;
+}
+section#graph footer span{
+	text-align: center;
+	font-size: 12px;
+}
+.bars{
+	background-color: red;
+	width: 100px;
+	height: 20px;
+}
