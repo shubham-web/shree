@@ -1,0 +1,335 @@
+@import url('montserrat.css');
+*{
+	font-family: "Montserrat", sans-serif;
+	transition: 0.3s;
+	scroll-behavior: smooth;
+	box-sizing: border-box;
+}
+*::selection{
+	color: #4448e2;
+	background-color: yellow;
+}
+::-webkit-scrollbar {
+	width: 10px;
+}
+::-webkit-scrollbar-track {
+	background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+	background: #888; 
+}
+::-webkit-scrollbar-thumb:hover {
+	background: #555; 
+}
+body{
+	margin: 0;
+	padding: 10px;
+	text-align: center;
+}
+#backIcon{
+	position: relative;
+	top: 1px;
+	left: 20px;
+	width: 36px;
+	background-color: #33333397;
+	padding: 8px;
+	border-radius: 50px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+#backIcon:hover{
+	background-color: #000;
+}
+#logoSection{
+	position: relative;
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	left: 0%;
+}
+#logoImg{
+	position: absolute;
+	top: 22.4px;
+	width: 65%;
+	height: 65%;
+	transform: translateX(-50%);
+	border-radius: 50%;
+	background-color: #fff;
+}
+#gearImg{
+	position: absolute;
+	top: 0;
+	width: 110%;
+	height: 110%;
+	transform: translateX(-50%);
+	animation: animate 1s infinite linear;
+}
+@keyframes animate{
+	from{
+		transform: translateX(-50%) rotate(0deg);
+	}
+	to{
+		transform: translateX(-50%) rotate(180deg);
+	}
+}
+header{
+	display: inline-block;
+	width: 100%;
+	clear: both;
+	margin-bottom: 10px;
+}
+#addNewBtn, header #manualBill, header #reportBtn, header #reportBtn2{
+	border: none;
+	padding: 10px;
+	cursor: pointer;
+	outline: none;
+	color: #f1f1f1;
+	background-color: dodgerblue;
+	font-size: 14px;
+	box-shadow: 0 0 10px #fff;
+	border-radius: 20px;
+}
+#addNewBtn:focus{
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+h1{
+	margin: 0;
+}
+h1.left{
+	display: inline-block;
+	vertical-align: top;
+	padding-left: 30px;
+	color: #333;
+	font-size: 1.8rem;
+}
+#addNewBtn:before, header #manualBill:before, header #reportBtn:before, header #reportBtn2:before{
+	content: '\271A';
+	background-color: white;
+	color: #000;
+	border-radius: 50%;
+	padding: 3px 6px;
+	margin-right: 10px;
+}
+header #reportBtn:before,header #reportBtn2:before{
+	content: '\25C9';
+}
+#addNewBtn:active,header #manualBill:active, header #reportBtn:active, header #reportBtn2:active{
+	box-shadow: none;
+	background-color: #fff;
+	color: dodgerblue;
+	border: 1px solid;
+	font-weight: bold;
+	transform: scale(.9);
+}
+header #searchInput{
+	padding: 10px;
+	padding-left: 15px;
+	padding-right: 35px;
+	width: 100%;
+	border-radius: 50px;
+	outline: none;
+	border: 1px solid #ccc;
+}
+header #searchInput:focus{
+	border-color: dodgerblue;
+}
+.p_a{
+	position: absolute;
+}
+header #searchInput:focus + #searchIcon{
+	background-color: #58e870;
+}
+header #searchIcon{
+	position: absolute;
+	background-color: dodgerblue;
+	border-radius: 50%;
+	width: 34px;
+	top: 2.5px;
+	right: 3px;
+	padding: 8px;
+}
+table:not(.noStyle){
+	background-color: #fff;
+	width: 100%;
+	border-collapse: collapse;
+	border-bottom: 2px solid #cccccc;
+}
+table:not(.noStyle) td, table:not(.noStyle) th{
+	text-align: left;
+	color: #666;
+	padding: 11px;
+}
+table:not(.noStyle) tr{
+	border-top: 1px solid #cccccc;
+}
+table:not(.noStyle) tr:nth-child(even){
+	background-color: #f2f2f2;
+}
+table:not(.noStyle) tbody tr:not(.noHover):hover{
+	background-color: #cccccc80;
+}
+.status{
+	text-align: center !important;
+	font-weight: 500;
+}
+.actions button{
+	border: none;
+	padding: 8px;
+	border-radius: 50px;
+	cursor: pointer;
+	outline: none;
+	width: 35px;
+	height: 35px;
+}
+.viewBtn{
+	padding-left: 0;
+	padding-right: 0;
+	background-color: #26262680;
+}
+.viewBtn:focus{
+	background-color: #000;
+}
+.viewBtn:not([disabled]):hover{
+	background-color: black;
+}
+.editBtn{
+	background-color: dodgerblue;
+}
+.editBtn:focus{
+	background-color: #1564b1;
+}
+.editBtn:not([disabled]):hover{
+	background-color: #1564b1;
+}
+.deleteBtn{
+	background-color: red;
+}
+.deleteBtn[disabled], .viewBtn[disabled], .editBtn[disabled]{
+	background-color: #ccc;
+	cursor: no-drop;
+}
+.deleteBtn:focus{
+	background-color: #ba0000;
+}
+.deleteBtn:not([disabled]):hover{
+	background-color: #ba0000;
+}
+.btnIcon{
+	width: 18px;
+	height: 18px;
+}
+.cId{
+	font-weight: bold;
+}
+.cMob{
+	font-family: monospace;
+}
+.gstin{
+	text-transform: uppercase;
+}
+.loading{
+	display: block;
+	margin: 0 auto;
+	width: 100px;
+	height: 100px;
+}
+input[type='date']{
+	padding: 5px;
+	border: none;
+	border-bottom: 1px solid;
+	font-size: 16px;
+}
+.smallButton{
+	padding: 8px 14px;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+	background-color: dodgerblue;
+	color: #fff;
+	border-radius: 15px;
+}
+.smallButton:active{
+	transform: scale(0.9);
+}
+textarea#remarks{
+	resize: none;
+	font-size: 18px;
+	border: none;
+	border-left: 3px solid #ccc;
+	padding: 20px;
+	box-sizing: border-box;
+	outline: none;
+}
+textarea#remarks:focus{
+	border-color: dodgerblue;
+}
+input[type="radio"]{
+	display: none;
+}
+label{
+	position: relative;
+	margin: 0 10px;
+}
+input[type="radio"]:checked + label img{
+	opacity: 1;
+	transform: scale(1.2);
+}
+label img{
+	opacity: 0.4;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	cursor: pointer;
+	padding: 5px;
+}
+label.valid img{
+	background-color: #58e870;
+}
+label.invalid img{
+	background-color: orangered;
+}
+.workingDays{
+	padding: 10px;
+	border: 1px solid #ccc;
+}
+
+/*------Manage Bills-----------*/
+span.billPaymentStts{
+	display: inline-block;
+	width: 10%;
+	transform: scale(5);
+	padding: 0px 10px;
+	background-color: red;
+	border-radius: 50%;
+}
+#ajaxMessages{
+	visibility: hidden;
+	position: fixed;
+	bottom: 20px;
+	background-color: green;
+	color: #fff;
+	border-radius: 5px;
+	left: 30px;
+	padding: 15px 25px;
+	user-select: none;
+	z-index: 100;
+	box-shadow: 0 0 20px rgba(0,0,0,0.5);
+	text-align: center;
+}
+
+#ajaxMessages.show{
+    visibility: visible;
+    animation: fadein 0.5s;
+}
+#ajaxMessages.hide{
+	animation: fadeout 0.5s;
+}
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 20px; opacity: 1;}
+}
+
+@keyframes fadeout {
+    from {bottom: 20px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}

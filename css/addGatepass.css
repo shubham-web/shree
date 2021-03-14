@@ -1,0 +1,215 @@
+@import url('montserrat.css');
+:root {
+  --theme-color: dodgerblue;
+  --font: "Montserrat", sans-serif;
+}
+*{
+	font-family: var(--font);
+	scroll-behavior: smooth;
+}
+*::selection{
+	color: #4448e2;
+	background-color: yellow;
+}
+body{
+	transition: 0.5s;
+	margin: 0;
+}
+a{
+	text-decoration: none;
+	color: var(--theme-color);
+}
+a:hover{
+	text-decoration: underline;
+	color: #1e70fe;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+#backIcon{
+	position: fixed;
+	top: 15px;
+	left: 20px;
+	width: 20px;
+	background-color: #33333397;
+	padding: 8px;
+	border-radius: 50px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+#backIcon:hover{
+	background-color: #000;
+}
+
+table{
+	background-color: #fff;
+	margin: 0 auto;
+	border-collapse: collapse;
+	min-width: 60%;
+}
+h1{
+	margin: 0;
+	color: #fff;
+	text-align: center;
+	font-size: 1.5rem;
+}
+thead{
+	background-color: #607d8b;
+}
+td, th{
+	padding: 20px 10px;
+}
+th{
+	color: #fff;
+}
+fieldset{
+	border-color: #ccc;
+	margin-bottom: 20px;
+}
+input,button,textarea,select{
+	padding: 8px 10px;
+	font-size: 14px;
+	border: none;
+	border-bottom: 1.2px solid grey;
+	width: 200px;
+}
+input:focus,textarea:focus,select:focus{
+	border-color: var(--theme-color);
+}
+input[type="checkbox"]{
+	width: auto;
+	visibility: hidden;
+	padding: 10px;
+}
+input[type="checkbox"]:before{
+	position: absolute;
+	content: '';
+	padding: 9px;
+	background: url('../img/icon/empty.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	visibility: visible;
+	box-sizing: border-box;
+	transition: 0.2s;
+	cursor: pointer;
+	z-index: 100;
+}
+input[type="checkbox"]:checked:before{
+	background: url('../img/icon/checked.png');
+	background-size: cover;
+}
+.quantity{
+	width: 100px;
+}
+input[type='radio']{
+	display: none;
+}
+input[type='radio']:checked + label{
+	padding: 10px;
+	cursor: pointer;
+	background-color: var(--theme-color);
+	color: #fff;
+}
+input[type='radio'] + label{
+	padding: 10px;
+	cursor: pointer;
+	transition: 0.2s;
+}
+button{
+	border-radius: 10px;
+	border:none;
+	cursor: pointer;
+}
+.removeBtn{
+	width: 80px;
+	background-color: #ff0000bd;
+	color: #fff;
+	font-weight: bold;
+	outline: none;
+	transition: 0.3s;
+}
+.removeBtn:hover{
+	background-color: red;
+}
+.removeBtn:focus{
+	box-shadow: 0 0 10px rgba(0,0,0,0.3);
+	background-color: red;
+}
+.removeBtn:active{
+	color: red;
+	background-color: white;
+	transform: scale(0.9);
+}
+#companyId,#employeeId{
+	width: auto;
+	text-align: center;
+	border: none;
+	border-radius: 50px;
+	background-color: #262626;	
+	color: #fff;
+}
+#addRowBtn{
+	width: 100px;
+	border-radius: 0;
+}
+button[type="submit"]{
+	background-color: dodgerblue;
+	color: #fff;
+	font-size: 1.25em;
+	width: auto;
+	border-radius: 30px;
+	margin: 0 auto;
+	display: block;
+	padding: 8px 30px;
+	transition: 0.2s;
+	outline: none;
+}
+button[type="submit"]:hover{
+	background-color: #1e70fe;
+}
+button[type="submit"]:focus{
+	box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+button[type="submit"]:active{
+	background-color: #fff;
+	color: dodgerblue;
+	border: 1px solid dodgerblue;
+	transform: scale(.9);
+}
+
+button[disabled]{
+	background-color: #1e70fe;
+	cursor: no-drop;
+}
+textarea{
+	resize: none;
+	width: 250px;
+}
+.selectStatus{
+	width: 130px;
+}
+#unpaidBillsRow{
+	transition: 0.3s;
+	display: none;
+	transform: scale(0);
+}
+tr{
+	transition: 0.3s;
+}
+tr.active{
+	transition: 0.2;
+	background-color: #dadada;
+}
+input.amountInput{
+	text-align: right;
+	width: 100px;
+}

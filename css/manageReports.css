@@ -1,0 +1,106 @@
+@import url('montserrat.css');
+*{
+	font-family: "Montserrat", sans-serif;
+	box-sizing: border-box;
+	user-select: none;
+	scroll-behavior: smooth;
+}
+::-webkit-scrollbar {
+	width: 10px;
+}
+::-webkit-scrollbar-track {
+	background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+	background: #888; 
+}
+::-webkit-scrollbar-thumb:hover {
+	background: #555; 
+}
+body{
+	margin: 0;
+	padding: 20px;
+}
+.heading{ /* ---Section Headings--- */
+	position: relative;
+	display: block;
+	font-weight: bold;
+	padding-left: 20px;
+	color: #2b2e3d;
+	cursor: default;
+}
+.heading:before{
+	content: '';
+	position: absolute;
+	transform: translate(-150%,50%);
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background-color: #26eda2;
+}
+section#reports{
+	width: 95%;
+	display: grid;
+	padding: 20px;
+	grid-gap: 20px;
+	grid-template-rows: repeat(2,80px);
+	grid-template-columns:  repeat(4, 25%);
+	transition: 0.4s;
+}
+.reportBox{
+	position: relative;
+	background-color: #fff;
+	border-radius: 10px;
+	box-shadow: 0 0 20px rgba(255,255,255,0.22);
+	color: #fff;
+	font-weight: 600;
+	cursor: pointer;
+	transition: 0.5s;
+	justify-content: center;
+	vertical-align: top;
+	padding: 20px;
+}
+.reportBox:hover{
+	box-shadow: 0 0 20px rgba(255,255,255,0.42);
+}
+.reportBox span{
+	display: block;
+}
+.reportBox .reportHead{
+	transition: 0.3s;
+	border-radius: 20px;
+	font-size: 1.2em;
+}
+.reportBox:hover .reportHead{
+	transform: translateY(-100%);
+	background-color: #333;
+	padding: 5px;
+	padding-left: 1vw;
+	font-size: 1em;
+}
+.reportBox .reportSubHead{
+	display: block;
+	transition: 0.3s ease;
+	font-weight: normal;
+	font-size: 12px;
+}
+.reportBox .reportStatistics{
+	font-weight: normal;
+	font-size: 12px;
+	opacity: 0;
+	transition: 0.3s linear;
+}
+.reportBox:hover .reportSubHead{
+	font-size: 14px;
+	transform: translateY(-150%);
+}
+.reportBox:hover .reportStatistics{
+	transform: translateY(-150%);
+	opacity: 1;
+}
+.reportBox:nth-child(odd){
+	background-image: linear-gradient(to right, #6b82fe, #2cc8fd);
+}
+.reportBox:nth-child(even){
+	background-image: linear-gradient(to left, #ff908a, #ff7088);
+}

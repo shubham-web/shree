@@ -1,0 +1,213 @@
+@import url('montserrat.css');
+*{
+	font-family: 'Montserrat', sans-serif;
+	user-select: none;
+}
+*::selection{
+	color: #4448e2;
+	background-color: yellow;
+}
+body{
+	display: none;
+	margin: 0;
+	padding: 0;
+	background: linear-gradient(to top, #fff 50%, dodgerblue 50%);
+	background-size: cover;
+	background-size: 100% 135%;
+	background-clip: border-box;
+	background-repeat: no-repeat;
+	height: 100vh;
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+#logoSection{
+	position: absolute;
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	top: 3%;
+	left: 50%;
+	z-index: 10;
+}
+#logoImg{
+	position: absolute;
+	top: 20px;
+	width: 60%;
+	height: 60%;
+	transform: translateX(-50%);
+	border-radius: 50%;
+	background-color: #fff;
+	z-index: 15;
+}
+#gearImg{
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	transform: translateX(-50%);
+	animation: rotate 1.7s infinite linear;
+	transition: 0.5s;
+}
+@keyframes rotate{
+	from{
+		transform: translateX(-50%) rotate(0deg);
+	}
+	to{
+		transform: translateX(-50%) rotate(180deg);
+	}
+}
+form{
+	display: inline-block;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background-color: #fff;
+	text-align: center;
+	border-radius: 1px;
+	border: none;
+	transition: 0.5s;
+	min-width: 500px;
+	max-width: 620px;
+	box-shadow: 0 0 100px #33333350;
+	padding: 10px;
+	box-sizing: border-box;
+	border-top: 10px solid #02d1a4;
+
+}
+form:before{
+	position: absolute;
+	content: '';
+	width: 100%;
+	top: 100%;
+	padding: 20px;
+	background-image: url('../img/bottomShadow.png');
+	background-repeat: no-repeat;
+	background-size: 100%;
+	left: 0;
+	box-sizing: border-box;
+	opacity: 0.8;
+}
+form:hover{
+	box-shadow: 0 0 10px #33333350;
+}
+form h1{
+	text-align: center;
+	text-transform: uppercase;
+	color: #030331;
+}
+form input{
+	display: inline-block;
+	width: 80%;
+	padding-bottom: 8px;
+	border: none;
+	border-bottom: 1.3px solid #ccc;
+	border-radius: 3px;
+	margin-bottom: 20px;
+	padding-left: 10px;
+	font-size: 1.25em;
+	outline: none;
+	padding-top: 5px;
+	transition: 0.5s;
+}
+input:focus{
+	border-color: #006fdc;
+}
+label{
+	position: relative;
+	display: inline-block;
+	width: 40%;
+	text-align: left;
+	box-sizing: border-box;
+	cursor: pointer;
+	padding-left: 25px;
+	margin-bottom: 25px;
+}
+label[for="remember"]:before{
+	display: inline-block;
+	position: absolute;
+	content: '';
+	left: 0;
+	background-repeat: no-repeat;
+	width: 20px;
+	height: 20px;
+	transition: 0.2s;
+	background: url('../img/icon/empty.png');
+	background-size: cover;
+	transform: scale(0.8);
+}
+#remember:checked + label[for="remember"]:before{
+	transform: scale(1);
+	background: url('../img/icon/checked.png');
+	background-size: cover;
+}
+input[type="checkbox"]{
+	display: none;
+}
+input[type='submit']{
+	display: block;
+	margin: 0 auto;
+	min-width: 20%;
+	max-width: 50%;
+	font-size: 20px;
+	padding: 10px;
+	background-color: #1e90ff;
+	border: none;
+	color: #fff;
+	transition: 0.2s;
+	cursor: pointer;	
+	border-radius: 50px;
+	margin-bottom: 20px;
+}
+input[type='submit'][disabled='']{
+	cursor: no-drop !important;
+	background-color: #1e70fe !important;
+}
+input[type='submit']:hover{
+	background-color: #1e70fe;
+}
+input[type='submit']:focus{
+	box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+input[type='submit']:active{
+	background-color: #fff;
+	color: dodgerblue;
+	border: 1px solid dodgerblue;
+	transform: scale(.9);
+	box-shadow: none;
+}
+
+label[for="frgtPWD"]{
+	text-align: right;
+}
+#frgtPWD{
+	text-decoration: none;
+	color: dodgerblue;
+	transition: 0.5s;
+}
+#frgtPWD:hover{
+	text-decoration: underline;
+}
+#show{
+	position: fixed;
+	top: 157px;
+	right: 75px;
+	width: 18px;
+	background-color: #ccc;
+	border-radius: 50%;
+	padding: 3px 4px;
+	cursor: pointer;
+	transition: 0.3s;
+}

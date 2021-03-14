@@ -1,0 +1,82 @@
+@import url('montserrat.css');
+*{
+	font-family: "Montserrat", sans-serif;
+	box-sizing: border-box;
+	transition: 0.2s;
+}
+*::selection{
+	color: #4448e2;
+	background-color: yellow;
+}
+body{
+	margin: 0;
+	padding: 0px;
+	text-align: center;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+form{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	padding: 20px;
+	background-color: #fff;
+	box-sizing: border-box;
+	width: 60%;
+	text-align: center;
+	display: inline-block;
+	border-radius: 10px;
+	box-shadow: 0 0 5px rgba(0,0,0,0.5);
+	margin: 10px;
+}
+form h1{
+	display: inline-block;
+	margin: 0;
+	margin-bottom: 10px;
+	font-family: "Montserrat", sans-serif;
+	color: #262626;
+	font-size: 20px;
+}
+.feildName{
+	font-family: "Montserrat", sans-serif;
+}
+input,textarea,select{
+	border: none;
+	padding: 10px;
+	margin: 5px 10px;
+	border-radius: 10px;
+	border-left: 1px solid;
+	border-right: 1px solid;
+	border-bottom: 1px solid;
+	border-color: #cccccc;
+	font-size: 1rem;
+	outline: none;
+	width: 100%;
+}
+table{
+	margin: 0 auto;
+}
+#addInvoiceBtn{
+	border: none;
+	cursor: pointer;
+	padding: 10px;
+	font-weight: bold;
+}

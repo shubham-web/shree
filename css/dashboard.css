@@ -1,0 +1,652 @@
+@import url('montserrat.css');
+*{
+	transition: 0.3s;
+	font-family: "Montserrat", sans-serif;
+	scroll-behavior: smooth;
+	box-sizing: border-box;
+	user-select: none;
+}
+*::selection{
+	color: #4448e2;
+	background-color: yellow;
+}
+::-webkit-scrollbar {
+	width: 10px;
+}
+::-webkit-scrollbar-track {
+	background: #f1f1f1; 
+}
+::-webkit-scrollbar-thumb {
+	background: #888; 
+}
+::-webkit-scrollbar-thumb:hover {
+	background: #555; 
+}
+body{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	background-color: #f1f1f1;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cpolygon fill='%23cc0000' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%23aa0000' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23d6002b' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23b10022' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23d9004b' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%23b2003d' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23d3006c' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%23ac0057' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23c4008c' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%239e0071' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23aa00aa' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23880088' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
+	background-size: cover;
+	clear: both;
+	display: flex;
+	overflow-y: hidden;
+}
+#sidebarMenu{
+	position: relative;
+	height: 100vh;
+	flex: 0.16;
+	background-image: linear-gradient(to top right, #5a1ac5, #384ecf, #197cd8);
+	color: #fff;
+	text-align: center;
+	font-family: "Montserrat", sans-serif;
+	box-sizing: border-box;
+}
+.menuIcon{
+	width: 20px;
+	margin: 0px;
+	margin-right: 10px;
+	opacity: 0.5;
+	transform: scale(1.1);
+}
+#siteTitle{
+	display: inline-block;
+	width: 100%;
+	cursor: pointer;
+	text-align: center;
+	margin: 0;
+	margin-top: 5px;
+}
+#logo{
+	width: 50px;
+	border: 1px solid #fff;
+	border-radius: 50%;
+	background-color: #fff;
+}
+.menuItem{
+	display: inline-flex;
+	flex-direction: row;
+	align-items: center;
+	font-family: "Montserrat", sans-serif;
+	font-weight: 400;
+	width: 100%;
+	padding: 10px;
+	padding-left: 10%;
+	box-sizing: border-box;
+	margin: 0;
+	border: none;
+	background: transparent;
+	transition: all 0.3s;
+	color: #fff;
+	cursor: pointer;
+	font-size: 1.15rem;
+	text-transform: capitalize;
+	text-align: left;
+}
+.menuItem:not(#more).active{
+	border-left: 2px solid #fff;
+	cursor: default;
+}
+.menuItem:not(#more).active .menuIcon{
+	opacity: 1;
+	transform: scale(1.2);
+}
+.menuItem:hover{
+	background-color: dodgerblue;
+}
+.menuItem:hover .menuIcon{
+	opacity: 1;
+	transform: scale(1.2);
+}
+.menuItem:not(#more):focus{
+	font-size: 1.1em;
+	outline-color: white;
+	outline-style: dashed;
+	outline-width: thin;
+}
+#moreItems{
+	position: absolute;
+	top: 325px;
+	background-color: #333;
+	transform-origin: bottom left;
+	overflow: hidden;
+	transition: 0.3s;
+	height: 135px;
+	transform: scaleY(1) rotate(-90deg);
+	opacity: 0.1;
+}
+#more:hover img{
+	transition: 0.3s;
+	transform: rotate(90deg);
+}
+#more:hover + #moreItems, #moreItems:hover, #company:focus #moreItems{
+	transform: scaleY(1) rotate(0deg);
+	opacity: 1;
+}
+#dashboard{
+	display: inline-block;
+	padding: 5px;
+	flex: 0.84;
+	margin-left: auto;
+	box-sizing: border-box;
+	z-index: 2;
+	border-bottom: 6px solid #58e870;
+}
+#dashboard header{
+	display: inline-block;
+	display: flex;
+	position: relative;
+	padding: 5px 10px;
+	margin: 0px auto;
+}
+#dashboard header h1{
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	font-family: "Montserrat", sans-serif;
+	color: #484745;
+	font-weight: bold;
+	cursor: default;
+	margin-right: auto;
+}
+#dashboard header #email{
+	border-radius: 50px;
+	padding: 7px 14px;
+	background-color: dodgerblue;
+	font-family: "Montserrat", sans-serif;
+	font-size: 14px;
+	cursor: pointer;
+	color: #fff;
+	transition: 0.5s;
+	margin-left: auto;
+}
+#container{
+	position: absolute;
+}
+#mainWrapper{
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	width: 83vw;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+#logout{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	margin-top: auto;
+}
+#loader{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: #fff;
+	font-family: "Montserrat", sans-serif;
+	z-index: 100;
+	transition: 0.5s;
+}
+#loader span{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	font-size: 2em;
+}
+iframe{
+	width: 101.5%;
+	height: calc(100vh - 66px);
+}
+hr{
+	margin: 5px;
+}
+/* ---------For Accordion -------------*/
+section.accorrdionWrapper, section.todoWrapper{
+	position: relative;
+	border-radius: 5px;
+	width: 50%;
+	padding: 10px 30px;
+	align-items: stretch;
+	height: 100%;
+	box-sizing: border-box;
+}
+p{
+	margin: 0;
+}
+section.accorrdionWrapper .accordionBox{
+	position: relative;
+	overflow: hidden;
+	margin: 8px 0;
+	box-shadow: 0 0 5px rgba(0,0,0,0.3);
+	border-radius: 5px;
+	transition: 0.3s;
+	opacity: 0.9;
+	width: 100%;
+}
+section.accorrdionWrapper .accordionBox:hover{
+	opacity: 1;
+}
+section.accorrdionWrapper .accordionBox .accordionHead{
+	display: flex;
+	align-items: center;
+	position: relative;
+	padding: 8px;
+	margin: 0;
+	color: #fff;
+	text-transform: capitalize;
+	cursor: pointer;
+	text-align: left;
+	font-weight: 600;
+	background-image: linear-gradient(to bottom right, dodgerblue, #5422c6);
+}
+section.accorrdionWrapper .accordionBox .accordionHead .icon{
+	width: 20px;
+	height: auto;
+	margin: 0 10px;
+}
+section.accorrdionWrapper .accordionBox .accordionHead .expandArrow{
+	position: absolute;
+	width: 15px;
+	top: 50%;
+	right: 10px;
+	transform: translateY(-50%) rotate(180deg);
+}
+section.accorrdionWrapper .accordionBox .accordionData{ /*  ul */
+	list-style-type: square;
+	background-color: #fff;
+	overflow: hidden;
+	margin: 0;
+	height: 0px;
+	transition: 0.5s;
+	padding: 0;
+}
+section.accorrdionWrapper .accordionBox .dataIcon{
+	position: absolute;
+	right: 7%;
+	bottom: -100%;
+	opacity: 0.7;
+	width: 100px;
+	height: auto;
+	transition: 0.8s;
+	cursor: pointer;
+}
+section.accorrdionWrapper .accordionBox .dataIcon:hover{
+	opacity: 1;
+}
+section.accorrdionWrapper .accordionBox .dataIcon#dataIcon1{
+	right: 100%;
+	bottom: -10%;
+}
+section.accorrdionWrapper .accordionBox .accordionData li{
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	text-align: left;
+	padding-left: 50px;
+	padding-right: 20px;
+	color: forestgreen;
+	transition: 0.3s;
+	font-weight: bold;
+}
+.clickable{
+	cursor: pointer;
+	transition: 0.5s;
+}
+.clickable:hover{
+	background-color: rgba(0,144,255,0.1);
+}
+section.accorrdionWrapper .accordionBox .accordionData li:before{
+	content: '';
+	position: absolute;
+	padding: 5px 5px;
+	margin: 5px 0;
+	background-color: currentColor;
+	border-radius: 50%; 
+	transform: translateX(-280%);
+	transition: 0.3s;
+}
+section.accorrdionWrapper .accordionBox .extended{
+	height: 120px;
+}
+section.accorrdionWrapper .accordionBox:hover{
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+a{
+	color: dodgerblue;
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+}
+
+/* ------------ To Do App's CSS ---------------*/
+.todoApp{
+	display: inline-block;
+	border-radius: 10px;
+	width: 100%;
+	height: auto;
+	background-color: #fff;
+	overflow: hidden;
+	margin: 0px auto 5px;
+	box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+.todoApp header#todoHeader{
+	display: inline-block;
+	position: sticky;
+	padding: 20px 40px;
+	top: 0;
+	width: 100%;
+	background: dodgerblue;
+	border-bottom: 1px solid #ccc;
+	box-shadow: 0 1px 10px rgba(0,0,0,0.1);
+	background-image: linear-gradient(to top right, dodgerblue, #5422c6);
+}
+.todoApp header#todoHeader span{
+	display: inline-block;
+	padding: 5px 3px;
+	max-resolution: res;in: 0;
+	color: #ffc;
+}
+.todoApp header#todoHeader #day{
+	color: #fff;
+	font-weight: bold;
+	font-size: 1.5rem;
+	width: 75%;
+}
+.todoApp header#todoHeader #undoneTasks{
+	font-family: cursive;
+}
+.todoApp header#todoHeader #middleAction{
+	position: absolute;
+	display: inline-block;
+	bottom: -25px;
+	left: 0;
+	vertical-align: top;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	padding-right: 50px;
+}
+.todoApp header#todoHeader #middleAction #addTodo{
+	border-radius: 50%;
+	background-color: #fff;
+	border: none;
+	color: dodgerblue;
+	width: 50px;
+	height: 50px;
+	font-size: 1.9rem;
+	outline: none;
+	cursor: pointer;
+	font-weight: bold;
+	box-shadow: 0 0 10px rgba(100,100,100,0.5);
+	transition: 0.3s;
+	z-index: 100;
+}
+
+.todoApp header#todoHeader #middleAction #newTaskInput{
+	position: relative;
+	padding: 10px;
+	padding-left: 14px;
+	padding-right: 40px;
+	width: 84%;
+	font-size: 1.1em;
+	border-radius: 50px;
+	outline: none;
+	border: none;
+	transition: 0.3s;
+	color: #333;
+	text-transform: capitalize;
+	display: none;
+	transform-origin: right;
+	margin-right: -30px;
+	transform: scaleX(0);
+	box-shadow: 0 0 10px rgba(100,100,100,0.5);
+	z-index: 100;
+	display: flex;
+}
+.todoApp header#todoHeader #middleAction #addTodo:hover{
+	box-shadow: 0 0 2px rgba(0,0,0,0.5);
+}
+.todoApp header#todoHeader #middleAction #addTodo:focus{
+	box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+.todoApp header#todoHeader #middleAction #addTodo:active{
+	transform: scale(0.9);
+}
+.todoApp main{
+	padding: 30px 0px 20px;
+	max-height: 68vh;
+	overflow: auto;
+	text-align: justify;
+}
+.todoApp main table{
+	width: 100%;
+	border-collapse: collapse;
+}
+.todoApp main table tr{
+	border-bottom: 1px solid #cccccc;
+}
+.todoApp main table tr td:nth-child(1){ /*----- Todo Checkboxes -------*/
+	width: 15%;	
+	text-align: center;
+}
+.todoApp main table tr td:nth-child(2){ /*----- Todo Titles -------*/
+	width: 75%;
+	text-align: left;
+}
+.todoApp main table tr td:nth-child(3){ /*----- Todo Titles -------*/
+	width: 10%;
+	text-align: center;
+}
+.todoApp main table tr td{
+	padding: 0px;
+	box-sizing: border-box;
+}
+.todoApp main table .todoTitle{
+	cursor: pointer;
+}
+.todoApp main table tr td .deleteTodo{
+	border: none;
+	font-size: 1.5em;
+	padding: 0;
+	margin: 0;
+	color: #333;
+	background-color: transparent;
+	padding: 10px;
+	opacity: 0;
+	cursor: pointer;
+	outline-color: red;
+}
+.todoApp main table .deleteTodo:hover{
+	color: red;
+}
+.todoApp main table .deleteTodo:focus{
+	opacity: 1;
+}
+.todoApp main table tr td .deleteTodo:active{
+	transform: scale(0.9);
+}
+.todoApp main table  .todoTitle.checked{
+	text-decoration: line-through;
+	color: rgba(0,0,0,0.5);
+}
+.todoApp main tr:hover{
+	background-color: #f1f1ff;
+}
+.todoApp main tr:hover .deleteTodo{
+	opacity: 1;
+}
+.todoApp main tr .checkbox{
+	padding: 20px;
+}
+.todoApp main tbody tr .checkbox input[type="checkbox"]{
+	cursor: pointer;
+	position: relative;
+}
+.todoApp main tr .checkbox input[type="checkbox"]:before{
+	position: absolute;
+	content: '';
+	padding: 10px;
+	top: 0;
+	left: 0;
+	transform: translate(-10%,-10%);
+	background-color: red;
+	background: url('../icon/todoEmpty'), #fff;
+	background-size: cover;
+	border-radius: 50%;
+}
+.todoApp main tr .checkbox input[type="checkbox"]:checked:before{
+	background: url('../icon/todoChecked'), #fff;
+	background-size: cover;
+}
+#emptyToDo{
+	text-align: center;
+	color: #333;
+}
+.infoText{
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+}
+.timeStamp{
+	display: inline-block;
+	width: 100%;
+	color: coral;
+	text-align: center;
+	font-size: 0.8em;
+	font-weight: bold;
+	margin: 15px 0 5px;
+}
+
+/* ------------------Statistics Box CSS ----------------*/
+#statisticsWrapper{
+	display: inline-block;
+	background-color: #fff;
+	width: 100%;
+	height: 219px;
+	overflow: auto;
+	border-radius: 10px;
+	box-shadow: 0 0 15px rgba(0,0,0,0.1);
+	overflow: hidden;
+	padding: 3px;
+	margin-bottom: 5px;
+}
+#statisticsWrapper h1{
+	position: relative;
+	margin: 0;
+	color: #455555;
+	font-size: 1.2rem;
+	background-color: dodgerblue;
+	color: #fff;
+	padding: 10px;
+	border-radius: 10px;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	cursor: default;
+	font-weight: 500;
+	background: linear-gradient(to right, #5a1ac5, #384ecf, #197cd8);
+}
+#statisticsWrapper img#statisticsIcon{
+	position: absolute;
+	top: 50%;
+	right: 3%;
+	transform: translateY(-50%);
+	opacity: 0.7;
+}
+#statisticsWrapper #statisticsNav{
+	position: relative;
+	padding: 0;
+}
+#statisticsWrapper #statisticsNav ul{
+	padding: 0;
+	margin: 0;
+	display: flex;
+	justify-content: space-around;
+	border-bottom: 1px solid #ccc;
+	padding-top: 8px;
+}
+
+#statisticsWrapper #statisticsNav #activeBar{
+	position: absolute;
+	content: '';
+	width: 42px;
+	height: 2px;
+	bottom: 1px;
+	left: 2.4%;
+	background-color: dodgerblue;
+	transition: 0.3s;
+}
+#statisticsWrapper #statisticsNav ul li{
+	display: inline-block;
+	text-transform: capitalize;
+	cursor: pointer;
+	color: #000;
+	padding: 3px 5px;
+	transition: 0.3s;
+	font-size: 1rem;
+	font-weight: 450;
+}
+#statisticsWrapper #statisticsNav ul a:hover li{
+	color: dodgerblue;
+}
+#statisticsWrapper #statisticsNav ul a.activeStatistics li{
+	color: #1e90ff;
+}
+#statisticsWrapper .dataRoot{
+	display: flex;
+	width: 495px;
+	overflow: hidden;
+	scroll-behavior: smooth;
+	flex-wrap: nowrap;
+	border-radius: 10px;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+#statisticsWrapper .statisticsData{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 495px;
+	text-align: justify;
+	padding: 10px;
+	box-sizing: border-box;
+}
+#statisticsWrapper .statisticsData .left{
+	width: 30%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+#statisticsWrapper .statisticsData .right{
+	display: grid;
+	align-items: center;
+	width: 70%;
+}
+#statisticsWrapper .statisticsData .circle{
+	position: relative;
+	background-color: #fff;
+	border: 10px solid dodgerblue;
+	border-radius: 50%;
+	padding: 30px;
+}
+#statisticsWrapper .statisticsData .circle:before{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	border: 10px solid #ccc;
+	margin: -10px -10px;
+	border-radius: 50%;
+	padding: 30px;
+	background-color: transparent;
+	clip-path: polygon(50% 0%, 50% 50%, -100% 0%, 100% 0%);
+}
+#statisticsWrapper .statisticsData .circle + #digit{
+	position: relative;
+	top: 0px;
+	left: -50px;
+	color: dodgerblue;
+}

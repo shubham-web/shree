@@ -1,0 +1,197 @@
+@import url('montserrat.css');
+.todoApp{
+	display: inline-block;
+	border-radius: 10px;
+	width: 100%;
+	height: auto;
+	background-color: #fff;
+	overflow: hidden;
+	margin: 0px auto 5px;
+	box-shadow: 0 0 50px rgba(0,0,0,0.5);
+}
+.todoApp header#todoHeader{
+	display: inline-block;
+	position: sticky;
+	padding: 20px 40px;
+	top: 0;
+	width: 100%;
+	background: dodgerblue;
+	border-bottom: 1px solid #ccc;
+	box-shadow: 0 1px 10px rgba(0,0,0,0.1);
+	background-image: linear-gradient(to top right, dodgerblue, #5422c6);
+}
+.todoApp header#todoHeader span{
+	display: inline-block;
+	padding: 5px 3px;
+	max-resolution: res;in: 0;
+	color: #ffc;
+}
+.todoApp header#todoHeader #day{
+	color: #fff;
+	font-weight: bold;
+	font-size: 1.5rem;
+	width: 75%;
+}
+.todoApp header#todoHeader #undoneTasks{
+	font-family: cursive;
+}
+.todoApp header#todoHeader #middleAction{
+	position: absolute;
+	display: inline-block;
+	bottom: -25px;
+	left: 0;
+	vertical-align: top;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	padding-right: 50px;
+}
+.todoApp header#todoHeader #middleAction #addTodo{
+	border-radius: 50%;
+	background-color: #fff;
+	border: none;
+	color: dodgerblue;
+	width: 50px;
+	height: 50px;
+	font-size: 1.9rem;
+	outline: none;
+	cursor: pointer;
+	font-weight: bold;
+	box-shadow: 0 0 10px rgba(100,100,100,0.5);
+	transition: 0.3s;
+	z-index: 100;
+}	
+.todoApp header#todoHeader #middleAction #newTaskInput{
+	position: relative;
+	padding: 10px;
+	padding-left: 14px;
+	padding-right: 40px;
+	width: 84%;
+	font-size: 1.1em;
+	border-radius: 50px;
+	outline: none;
+	border: none;
+	transition: 0.3s;
+	color: #333;
+	text-transform: capitalize;
+	transform-origin: right;
+	margin-right: -30px;
+	transform: scaleX(0);
+	box-shadow: 0 0 10px rgba(100,100,100,0.5);
+	z-index: 100;
+	display: flex;
+}
+.todoApp header#todoHeader #middleAction #addTodo:hover{
+	box-shadow: 0 0 2px rgba(0,0,0,0.5);
+}
+.todoApp header#todoHeader #middleAction #addTodo:focus{
+	box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+.todoApp header#todoHeader #middleAction #addTodo:active{
+	transform: scale(0.9);
+}
+.todoApp main{
+	padding: 30px 0px 20px;
+	max-height: 68vh;
+	overflow: auto;
+	text-align: justify;
+}
+.todoApp main table{
+	width: 100%;
+	border-collapse: collapse;
+}
+.todoApp main table tr{
+	border-bottom: 1px solid #cccccc;
+}
+.todoApp main table tr td:nth-child(1){ /*----- Todo Checkboxes -------*/
+	width: 15%;	
+	text-align: center;
+}
+.todoApp main table tr td:nth-child(2){ /*----- Todo Titles -------*/
+	width: 75%;
+	text-align: left;
+}
+.todoApp main table tr td:nth-child(3){ /*----- Todo Titles -------*/
+	width: 10%;
+	text-align: center;
+}
+.todoApp main table tr td{
+	padding: 0px;
+	box-sizing: border-box;
+}
+.todoApp main table .todoTitle{
+	cursor: pointer;
+}
+.todoApp main table tr td .deleteTodo{
+	border: none;
+	font-size: 1.5em;
+	padding: 0;
+	margin: 0;
+	color: #333;
+	background-color: transparent;
+	padding: 10px;
+	opacity: 0;
+	cursor: pointer;
+	outline-color: red;
+}
+.todoApp main table .deleteTodo:hover{
+	color: red;
+}
+.todoApp main table .deleteTodo:focus{
+	opacity: 1;
+}
+.todoApp main table tr td .deleteTodo:active{
+	transform: scale(0.9);
+}
+.todoApp main table  .todoTitle.checked{
+	text-decoration: line-through;
+	color: rgba(0,0,0,0.5);
+}
+.todoApp main tr:hover{
+	background-color: #f1f1ff;
+}
+.todoApp main tr:hover .deleteTodo{
+	opacity: 1;
+}
+.todoApp main tr .checkbox{
+	padding: 20px;
+}
+.todoApp main tbody tr .checkbox input[type="checkbox"]{
+	cursor: pointer;
+	position: relative;
+}
+.todoApp main tr .checkbox input[type="checkbox"]:before{
+	position: absolute;
+	content: '';
+	padding: 10px;
+	top: 0;
+	left: 0;
+	transform: translate(-10%,-10%);
+	background-color: red;
+	background: url('../icon/todoEmpty'), #fff;
+	background-size: cover;
+	border-radius: 50%;
+}
+.todoApp main tr .checkbox input[type="checkbox"]:checked:before{
+	background: url('../icon/todoChecked'), #fff;
+	background-size: cover;
+}
+#emptyToDo{
+	text-align: center;
+	color: #333;
+}
+.infoText{
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+}
+.timeStamp{
+	display: inline-block;
+	width: 100%;
+	color: coral;
+	text-align: center;
+	font-size: 0.8em;
+	font-weight: bold;
+	margin: 15px 0 5px;
+}
