@@ -1,7 +1,6 @@
 FROM php:7.4-apache
 
 COPY apache/host.conf /etc/apache2/sites-available/000-default.conf
-COPY apache/start-apache /usr/local/bin
 RUN a2enmod rewrite
 
 RUN docker-php-ext-install mysqli
@@ -12,4 +11,7 @@ RUN rm -r /var/www/apache
 RUN rm -r /var/www/database
 RUN chown -R www-data:www-data /var/www
 
-CMD ["start-apache"]
+RUN sed -i "s/Listen 80/Listen ${PORT:-80}/g" /etc/apache2/ports.conf
+RUN sed -i "s/:80/:${PORT:-80}/g" /etc/apache2/sites-enabled/*
+
+CMD [ "apache2-foreground" ]
