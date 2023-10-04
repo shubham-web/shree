@@ -21,7 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `shree`
 --
-
+CREATE DATABASE IF NOT EXISTS shree;
+USE shree;
 -- --------------------------------------------------------
 
 --

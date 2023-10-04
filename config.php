@@ -4,11 +4,11 @@
 	if ($uri == 'config.php') die("Direct Access Not Allowed"); 
 	
 	// For Database Connection
-	$GLOBALS['server'] = 'localhost'; // Server Name
-	$GLOBALS['user'] = 'root'; // Database username
-	$GLOBALS['serverPassword'] = ''; // Database password
-	$GLOBALS['dbName'] = 'shree'; // Database Name
-	
+	$GLOBALS['server'] = $_ENV["DB_HOST"]; // Server Name
+	$GLOBALS['user'] = $_ENV["DB_USER"]; // Database username
+	$GLOBALS['serverPassword'] = $_ENV["DB_PASSWORD"]; // Database password
+	$GLOBALS['dbName'] = $_ENV["DB_NAME"]; // Database Name
+
 	//--------------------------------- Bill's  Details -----------------------
 	$GLOBALS['title'] = "Shree Engineering Works"; // Below Company Title
 	$GLOBALS['subTitle'] = "C-I,Chilled Roll Grinding , Grooving & Manufacturing Works"; // Below Company Title
