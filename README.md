@@ -4,25 +4,23 @@ My First Core PHP Project [2018-2019]
 
 ## Usage
 
-The easiest way of spinning this project would using the [docker-compose.yml](./docker-compose.yml) included in this project.
-Make sure you've docker installed on your system and then just run the following command in this folder:
+To easily set up and run this project, you can utilize the provided [docker-compose.yml](./docker-compose.yml) file.
+
+Ensure that Docker is installed on your system and follow these simple steps:
+
+Navigate to the project folder in your terminal.
+
+Run the following command to start the application along with the database:
 
 ```sh
 docker compose up
 ```
 
-This will start the app on `http://localhost` with the database also setup.
+This command will initiate the application, making it accessible at http://localhost.
 
-Upon launching the app you can use following credentials to login:
+Upon launching the application, you can log in using the following credentials:
 
-Username
+Username: `shree@prodevelopers.in`
+Password: `keepsmiling`
 
-> `shree@prodevelopers.in`
-
-Password:
-
-> keepsmiling
-
-Have Fun Exploring!
-
----
+Have fun exploring the functionality it offers!
