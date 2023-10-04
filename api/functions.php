@@ -14,6 +14,9 @@
 			$readable = 'Uncaught Server Error : '.$errstr;
 		}
 		echo "<span style=\"background: red; color: #fff;\"><b>".$readable."</b></span>";
+
+		echo "\n";
+		echo $errstr;
 		die();
 	}
 	set_error_handler("dbError",E_ALL);

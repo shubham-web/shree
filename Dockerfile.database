@@ -1,0 +1,6 @@
+FROM mysql:latest
+
+COPY ./database/shree.sql /docker-entrypoint-initdb.d/
+
+# Healthcheck to ensure the MySQL service is running
+HEALTHCHECK CMD mysqladmin ping -u root --password=$MYSQL_ROOT_PASSWORD || exit 1

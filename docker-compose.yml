@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  backend.shree:
+    build:
+      context: ./
+      dockerfile: Dockerfile.backend
+    ports:
+      - "80:80"
+    depends_on:
+      - database.shree
+    volumes:
+      - ./:/var/www
+    networks:
+      - shreenetwork
+    environment:
+      DB_HOST: database.shree
+      DB_USER: root
+      DB_NAME: shree
+      DB_PASSWORD: super-secret
+
+  database.shree:
+    build:
+      context: ./
+      dockerfile: Dockerfile.database
+    ports:
+      - "3306:3306"
+    networks:
+      - shreenetwork
+    environment:
+      MYSQL_ROOT_PASSWORD: super-secret
+
+networks:
+  shreenetwork:
